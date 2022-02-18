@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "AWSiOSSDKV2",
+        "repositoryURL": "https://github.com/aws-amplify/aws-sdk-ios-spm",
+        "state": {
+          "branch": null,
+          "revision": "2fbb2199cee0124c584e58c5753c05e10e7d7348",
+          "version": "2.27.1"
+        }
+      },
+      {
+        "package": "Livery",
+        "repositoryURL": "https://github.com/liveryvideo/livery-sdk-ios-spm",
+        "state": {
+          "branch": null,
+          "revision": "3a8b932d2abfb8ef024666eed24ead0fab1e89da",
+          "version": "1.3.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ixf-YI-sVB">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="Npr-6m-69C">
+            <objects>
+                <viewController id="Ixf-YI-sVB" customClass="ViewController" customModule="player_ios_example_spm" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4IH-yj-IVD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mpe-oJ-xhv">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hl6-tz-jcx"/>
+                        <color key="backgroundColor" red="0.1333333333" green="0.1176470588" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="hl6-tz-jcx" firstAttribute="bottom" secondItem="mpe-oJ-xhv" secondAttribute="bottom" id="440-Mn-nA8"/>
+                            <constraint firstItem="mpe-oJ-xhv" firstAttribute="leading" secondItem="hl6-tz-jcx" secondAttribute="leading" id="4f5-AP-4oN"/>
+                            <constraint firstItem="mpe-oJ-xhv" firstAttribute="top" secondItem="hl6-tz-jcx" secondAttribute="top" id="8DX-ag-qUu"/>
+                            <constraint firstItem="hl6-tz-jcx" firstAttribute="trailing" secondItem="mpe-oJ-xhv" secondAttribute="trailing" id="k4d-Iy-ytb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="playerView" destination="mpe-oJ-xhv" id="H0h-Ns-OIY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZGf-gX-0km" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="99.776785714285708"/>
+        </scene>
+    </scenes>
+</document>
