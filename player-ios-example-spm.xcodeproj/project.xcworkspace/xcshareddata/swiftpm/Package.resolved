@@ -1,25 +1,23 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "AWSiOSSDKV2",
-        "repositoryURL": "https://github.com/aws-amplify/aws-sdk-ios-spm",
-        "state": {
-          "branch": null,
-          "revision": "2fbb2199cee0124c584e58c5753c05e10e7d7348",
-          "version": "2.27.1"
-        }
-      },
-      {
-        "package": "Livery",
-        "repositoryURL": "https://github.com/liveryvideo/livery-sdk-ios-spm",
-        "state": {
-          "branch": null,
-          "revision": "7e0e4175bb5b1daedfd3bbfa9f63d8d6a82f8eaa",
-          "version": "1.4.0"
-        }
+  "pins" : [
+    {
+      "identity" : "aws-sdk-ios-spm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm",
+      "state" : {
+        "revision" : "170e7eb703997da8bce9b7e5cd2f3a96727c955d",
+        "version" : "2.27.14"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "livery-sdk-ios-spm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/liveryvideo/livery-sdk-ios-spm",
+      "state" : {
+        "revision" : "366532d5ac5e406ebd8b4a3ed26a77dea5d5c265",
+        "version" : "1.4.1"
+      }
+    }
+  ],
+  "version" : 2
 }
