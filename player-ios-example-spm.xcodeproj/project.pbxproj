@@ -378,8 +378,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/liveryvideo/livery-sdk-ios-spm";
 			requirement = {
-				kind = exactVersion;
-				version = 1.4.1;
+				branch = main;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
