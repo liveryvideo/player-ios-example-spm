@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/liveryvideo/livery-sdk-ios-spm",
       "state" : {
-        "branch" : "main",
-        "revision" : "3504c43520409f23cd9e13e273d8ddac335a6173"
+        "revision" : "29a82a03ac86fac72215bf3155d525bfb54dac4b",
+        "version" : "2.0.1"
       }
     }
   ],
