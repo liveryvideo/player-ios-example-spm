@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm",
       "state" : {
-        "revision" : "ae4052f95e8afca4866abae75f83b395fcdeb9b9",
-        "version" : "2.28.1"
+        "revision" : "ca31418963a90bac80538e13f6b7af87ea14d279",
+        "version" : "2.33.4"
       }
     },
     {
@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/liveryvideo/livery-sdk-ios-spm",
       "state" : {
-        "revision" : "29a82a03ac86fac72215bf3155d525bfb54dac4b",
-        "version" : "2.0.1"
+        "revision" : "df41b1eadfb50fc74e6762e78ed0974b4b423f5e",
+        "version" : "2.1.0"
       }
     }
   ],

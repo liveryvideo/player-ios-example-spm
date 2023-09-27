@@ -9,3 +9,4 @@ Built using XCode 13.2.1 (13C100) (Swift 5)
 3. Wait for the packages to be resolved
 4. You will need to change the **Bundle Identifier** and the **Team** to your own team in order to build and run the app
 5. Run the project on selected device or simulator
+    * When running on simulator select a Rosetta destination (to enable them go to Product -> Destination -> Destination Architectures)
