@@ -11,11 +11,21 @@ import Livery
 class ViewController: UIViewController {
     
     // MARK: - UI Properties
-    @IBOutlet private weak var playerView: UIView!
+    @IBOutlet private weak var playerContainerView: UIView! {
+        didSet {
+            playerContainerView.addSubview(playerView)
+            playerView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                playerView.topAnchor.constraint(equalTo: playerContainerView.topAnchor),
+                playerView.trailingAnchor.constraint(equalTo: playerContainerView.trailingAnchor),
+                playerView.bottomAnchor.constraint(equalTo: playerContainerView.bottomAnchor),
+                playerView.leadingAnchor.constraint(equalTo: playerContainerView.leadingAnchor),
+            ])
+        }
+    }
     
     // MARK: - Properties
-    private let liveSDK = LiverySDK()
-    private var player: Player?
+    private let playerView = LiveryPlayerView()
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -34,56 +44,40 @@ class ViewController: UIViewController {
         stop()
         
         // Initialize the SDK
-        liveSDK.initialize(streamId: "5ddb98f5e4b0937e6a4507f2", completionQueue: .main) { [weak self] result in
-            guard let self = self else { return }
+        LiverySDK.initialize(streamId: "5ddb98f5e4b0937e6a4507f2", completionQueue: .main) { [weak self] error in
+            guard let self else { return }
             
-            switch result {
-            case .success:
-                // Create a player object
-                self.player = self.liveSDK.createPlayer()
-                if let player = self.player {
-                    // Set a UIView for the player to render into
-                    player.setView(view: self.playerView)
-                    
-                    // Set 'self' as the class that implements the PlayerDelegate protocol to receive the Player Events
-                    player.delegate = self
+            if let error {
+                // deal with the initialization error here
+                showError(errorMessage: error.localizedDescription)
+            } else {
+                do {
+                    try playerView.createPlayer()
+                } catch {
+                    showError(errorMessage: error.localizedDescription)
+                    return
                 }
                 
-                // The player is now ready to play
-                self.play() // If your remote config as 'autoplay' set to true you don't need to call 'play'
-            
-            case .failure(let error):
-                // deal with the initialization error here
-                self.showError(errorMessage: error.localizedDescription)
+                // Set 'self' as the class that implements the PlayerDelegate protocol to receive the Player Events
+                playerView.delegate = self
+                playerView.play() // If your remote config as 'autoplay' set to true you don't need to call 'play'
             }
         }
     }
     
     // MARK: - Livery Player Actions
     private func play() {
-        player?.play(completionQueue: .main) { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success:
-                // player is now playing
-                break
-            case .failure(let error):
-                // deal with the play error here
-                self.showError(errorMessage: error.localizedDescription)
-            }
-        }
+        playerView.play()
     }
     
     private func stop() {
-        player?.stop {
-            print("Player did Stop")
-        }
+        playerView.stop()
     }
     
     @objc private func playbackDidChange(_ notification: Notification) {
         print("Playback state did change")
         
-        guard let stateString = (notification.object as? Player.PlaybackState)?.description  else { return }
+        guard let stateString = (notification.object as? LiveryPlaybackState)?.description  else { return }
         print("Playback State Now: \(stateString)")
     }
     
@@ -96,8 +90,8 @@ class ViewController: UIViewController {
 }
 
 // MARK: - PlayerDelegate
-extension ViewController: PlayerDelegate {
-    func playbackStateDidChange(playbackState: Player.PlaybackState) {
+extension ViewController: LiveryPlayerDelegate {
+    func playbackStateDidChange(playbackState: LiveryPlaybackState) {
         print("Playback state did change")
         print("Playback State Now: \(playbackState.description)")
     }
